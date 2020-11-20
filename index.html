@@ -50,11 +50,11 @@
                     </a>
                 </div>
                 <div class="hide-mobile" id="add-dropdown">
-                    <button>
+                    <button id="add-dropdown-btn">
                         <i class="material-icons">add</i>
                         <i class="material-icons">arrow_drop_down</i>
                     </button>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" id="dropdown-menu1">
                         <a href="">New Repository</a>
                         <a href="">Import Repository</a>
                         <a href="">New Gist</a>
@@ -62,12 +62,37 @@
                         <a href="">New Project</a>
                     </div>
                 </div>
-                <div class="nav-item p-0">
-                    <button class=" profile-dropdown">
+                <div class="nav-item p-0" id="profile-dropdown">
+                    <button id="profile-dropdown-btn">
                         <span class="avatar-container"></span>
                         <i class="material-icons hide-mobile">arrow_drop_down</i>
                         <span class="show-mobile">Ose-Me</span>
                     </button>
+                    <div class="dropdown-menu" id="dropdown-menu2">
+                        <div class="dropdown-section">
+                            <p>Signed in as <b>Ose-Me</b></p>
+                        </div>
+                        <div class="dropdown-section">
+                            <button>
+
+                            </button>
+                        </div>
+                        <div class="dropdown-section">
+                            <a href="">Your Profile</a>
+                        <a href="">Your repositories</a>
+                        <a href="">Your organisations</a>
+                        <a href="">Your projects</a>
+                        <a href="">Your stars</a>
+                    <a href="">Your gists</a>
+                    </div>
+                        <div class="dropdown-section">
+                            <a href="">Feature preview</a>
+                            <a href="">Help</a>
+                            <a href="">Settings</a>
+                            <a href="">Sign out</a>
+                        </div>
+                        
+                    </div>
                 </div>
                 <div class="nav-item sign-out show-mobile">
                     <img src="./assets/images/icons/sign-out.svg" alt="" class="icon">

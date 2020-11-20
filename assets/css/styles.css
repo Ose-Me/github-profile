@@ -142,9 +142,11 @@ body {
   margin-left: auto;
 }
 
-#add-dropdown {
+#add-dropdown,
+#profile-dropdown {
   position: relative;
   padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 #add-dropdown i:nth-child(2) {
@@ -156,6 +158,9 @@ body {
   z-index: 100;
   right: 0;
   bottom: 0;
+  display: none;
+  text-align: left;
+  font-weight: 400;
   -webkit-transform: translate(0, calc(100% + 10px));
   transform: translate(0, calc(100% + 10px));
   background-color: #fff;
@@ -169,6 +174,14 @@ body {
   box-shadow: 0 0 20px rgba(19, 19, 19, 0.075);
 }
 
+#dropdown-menu2 {
+  width: 180px;
+}
+
+.show {
+  display: block;
+}
+
 .dropdown-menu::before {
   position: absolute;
   display: inline-block;
@@ -178,7 +191,8 @@ body {
   left: auto;
 }
 
-.dropdown-menu a {
+.dropdown-menu a,
+.dropdown-menu p {
   padding: 4px 16px;
   display: block;
   color: #24292e;
@@ -253,9 +267,14 @@ body {
   margin-top: -32px;
 }
 
-.profile-dropdown {
+#profile-dropdown-btn {
   display: flex;
   padding: 0;
+}
+
+#profile-dropdown-btn,
+#add-dropdown-btn {
+  cursor: pointer;
 }
 
 .status {
@@ -281,8 +300,8 @@ body {
 
 .avatar-container,
 .profile-img div {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 1px solid #e1e4e8;
   background-image: url("../images/profile.jpg");
