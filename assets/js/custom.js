@@ -23,7 +23,7 @@ document
   });
 
 //scroll animation on repo header
-const headerUserNode = gitHubDOM.getNode(".repo_app_header-user");
+const headerUserNode = document.getElementById("hidden-span");
 window.addEventListener("scroll", (e) => {
   if (window.scrollY >= 370) {
     headerUserNode.classList.remove("hide");
