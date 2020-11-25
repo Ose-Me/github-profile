@@ -21,12 +21,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#main-container {
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
 .p-0 {
   padding: 0 !important;
 }
 
 .m-0 {
   margin: 0 !important;
+}
+
+.m-l-1 {
+  margin-left: 5px;
 }
 
 #logo {
@@ -69,7 +85,7 @@ body {
 .nav-item {
   color: #f2f2f2;
   text-align: center;
-  padding: 0.85rem 0.5rem;
+  padding: 0.75rem 0.5rem;
   text-decoration: none;
   font-weight: 500;
 }
@@ -101,7 +117,8 @@ body {
 }
 
 .search-bar .searchTerm {
-  min-width: 252px;
+  min-width: 230px;
+  font-size: 14px;
   width: 100%;
   border: 1px solid #444d56;
   border-right: none;
@@ -187,14 +204,6 @@ body {
 
 #dropdown-menu2 {
   width: 175px;
-}
-
-.show {
-  display: block !important;
-}
-
-.hide {
-  display: none !important;
 }
 
 .dropdown-container {
@@ -433,6 +442,7 @@ body {
 
 .fullname {
   font-size: 26px;
+  font-weight: 600;
   line-height: 1.25;
 }
 
@@ -511,6 +521,11 @@ body {
   color: #586069;
 }
 
+.repo-description {
+  font-size: 14px;
+  color: #586069;
+}
+
 .blue-icon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -518,7 +533,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin: 0 1rem;
+  margin: 0 0 0 1rem;
   -webkit-transition: 0.1s ease-out;
   transition: 0.1s ease-out;
   cursor: pointer;
@@ -545,11 +560,7 @@ body {
 }
 
 .timestamp {
-  margin-left: 5px;
-}
-
-#fork {
-  margin: 0;
+  margin-left: 1rem;
 }
 
 @media only screen and (max-width: 896px) {
@@ -609,6 +620,11 @@ body {
 
   .not-2 {
     display: none;
+  }
+
+  .sign-out {
+    display: flex;
+    align-items: center;
   }
 
   .dropdown-caret {

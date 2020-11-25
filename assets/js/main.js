@@ -8,12 +8,9 @@ const oauth = { Authorization: "bearer " + token };
 const query = `{
     viewer {
       login
+      name
       bio
       avatarUrl
-      status {
-        emojiHTML
-        message
-      }
       repositories(last: 20, isFork: false) {
         nodes {
           name
@@ -23,7 +20,7 @@ const query = `{
           updatedAt
           isPrivate
           stargazerCount
-          languages(first: 5, orderBy: {direction: ASC, field: SIZE}) {
+          languages(first: 5, orderBy: {direction: DESC, field: SIZE}) {
             nodes {
               color
               name
@@ -39,6 +36,7 @@ const query = `{
 axios
   .post(githubUrl, { query: query }, { headers: oauth })
   .then(function (response) {
+    document.getElementById("main-container").style.display = "block";
     const user = response.data.data.viewer;
 
     // map user data
