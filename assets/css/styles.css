@@ -537,8 +537,19 @@ body {
   fill: #0366d6;
 }
 
+.color-tag {
+  margin-right: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+}
+
+.timestamp {
+  margin-left: 5px;
+}
+
 #fork {
-  margin-left: 0;
+  margin: 0;
 }
 
 @media only screen and (max-width: 896px) {
