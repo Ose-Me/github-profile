@@ -86,6 +86,9 @@ const repoData = ({
   isPrivate,
   updatedAt,
   stargazerCount,
+  stargazers: {
+    nodes: [starredBy],
+  },
   forkCount,
   description,
   url,
@@ -111,7 +114,7 @@ const repoData = ({
       </div>
       <div>
           ${
-            stargazerCount <= 0
+            !starredBy || starredBy.isViewer === false
               ? `<button class="btn-star">
               <svg xmlns="http://www.w3.org/2000/svg" class="octicon octicon-star mr-1"
                   viewBox="0 0 16 16" version="1.1" aria-hidden="true">

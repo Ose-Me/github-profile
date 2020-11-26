@@ -6,30 +6,36 @@ const oauth = { Authorization: "bearer " + token };
 
 // The GraphQL query, a string
 const query = `{
-    viewer {
-      login
-      name
-      bio
-      avatarUrl
-      repositories(last: 20, isFork: false, orderBy: {field: UPDATED_AT, direction: ASC}) {
-        nodes {
-          name
-          description
-          forkCount
-          url
-          updatedAt
-          isPrivate
-          stargazerCount
-          languages(first: 5, orderBy: {direction: DESC, field: SIZE}) {
-            nodes {
-              color
-              name
-            }
+  viewer {
+    login
+    name
+    bio
+    avatarUrl
+    repositories(last: 20, isFork: false, orderBy: {field: UPDATED_AT, direction: ASC}) {
+      nodes {
+        name
+        description
+        forkCount
+        url
+        stargazers(orderBy: {field: STARRED_AT, direction: ASC}, first: 10) {
+          nodes {
+            isViewer
+          }
+        }
+        updatedAt
+        isPrivate
+        stargazerCount
+        languages(first: 5, orderBy: {direction: DESC, field: SIZE}) {
+          nodes {
+            color
+            name
           }
         }
       }
     }
   }
+}
+
   `;
 
 // Post request, axios.post() return a Promise
