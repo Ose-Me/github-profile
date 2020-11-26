@@ -63,6 +63,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 1.5rem;
+  margin-bottom: 24px;
   background-color: #24292e;
 }
 
@@ -258,7 +259,7 @@ body {
   top: 0;
   z-index: 1;
   background-color: #fff;
-  padding-top: 24px;
+  border-bottom: 1px solid #e1e4e8;
 }
 
 #sticky-top2 {
@@ -273,10 +274,11 @@ body {
 #hidden-span img {
   width: 35px;
   height: auto;
+  border-radius: 100%;
 }
+
 .row {
   display: flex;
-  border-bottom: 1px solid #e1e4e8;
   padding: 0 1.5rem;
 }
 
@@ -440,7 +442,7 @@ body {
   height: 20px;
   border-radius: 50%;
   border: 1px solid #e1e4e8;
-  background-image: url("../images/profile.jpg");
+  /* background-image: url("../images/profile.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;

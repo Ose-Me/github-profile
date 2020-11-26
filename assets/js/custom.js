@@ -1,6 +1,3 @@
-// extend day.js
-// var relativeTime = require("dayjs/plugin/relativeTime");
-
 // responsive navbar function
 function responsiveNav() {
   var x = document.getElementById("bottom-nav-mobile");
@@ -25,30 +22,14 @@ document
     document.getElementById("dropdown-menu2").classList.toggle("show");
   });
 
-// Close the dropdown if the user clicks outside of it
-// window.onclick = function (event) {
-//   if (!event.target.matches(".dropbtn")) {
-//     var dropdowns = document.getElementsByClassName("dropdown-menu");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains("show")) {
-//         openDropdown.classList.remove("show");
-//       }
-//     }
-//   }
-// };
-
 //scroll animation on repo header
 const stickyHeaderSpan = document.getElementById("hidden-span");
 const stickyHeader = document.getElementById("sticky-top1");
 window.addEventListener("scroll", (e) => {
   if (window.scrollY >= 370) {
     stickyHeaderSpan.classList.remove("hide");
-    stickyHeader.style.paddingTop = "0";
   } else {
     stickyHeaderSpan.classList.add("hide");
-    stickyHeader.style.paddingTop = "24px";
   }
 });
 
@@ -56,6 +37,12 @@ window.addEventListener("scroll", (e) => {
 const userData = ({ login, name, bio, avatarUrl }) => {
   console.log(login, name, bio, avatarUrl, status);
   let user = document.getElementById("profile-container");
+  let avatar = document.getElementsByClassName("avatar");
+  console.log(avatar);
+  for (var i = 0; i < avatar.length; i++) {
+    avatar[i].src = avatarUrl;
+    avatar[i].style.backgroundImage = `url(${avatarUrl})`;
+  }
   user.innerHTML = `
 <div class="profile">
                         <div class="profile-info">
