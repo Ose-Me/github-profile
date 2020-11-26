@@ -1,3 +1,6 @@
+// extend day.js
+// var relativeTime = require("dayjs/plugin/relativeTime");
+
 // responsive navbar function
 function responsiveNav() {
   var x = document.getElementById("bottom-nav-mobile");
@@ -22,13 +25,30 @@ document
     document.getElementById("dropdown-menu2").classList.toggle("show");
   });
 
+// Close the dropdown if the user clicks outside of it
+// window.onclick = function (event) {
+//   if (!event.target.matches(".dropbtn")) {
+//     var dropdowns = document.getElementsByClassName("dropdown-menu");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+//   }
+// };
+
 //scroll animation on repo header
-const headerUserNode = document.getElementById("hidden-span");
+const stickyHeaderSpan = document.getElementById("hidden-span");
+const stickyHeader = document.getElementById("sticky-top1");
 window.addEventListener("scroll", (e) => {
   if (window.scrollY >= 370) {
-    headerUserNode.classList.remove("hide");
+    stickyHeaderSpan.classList.remove("hide");
+    stickyHeader.style.paddingTop = "0";
   } else {
-    headerUserNode.classList.add("hide");
+    stickyHeaderSpan.classList.add("hide");
+    stickyHeader.style.paddingTop = "24px";
   }
 });
 
@@ -39,7 +59,7 @@ const userData = ({ login, name, bio, avatarUrl }) => {
   user.innerHTML = `
 <div class="profile">
                         <div class="profile-info">
-                            <div class="img-container">
+                            <div class="img-container" style="background-image:url(${avatarUrl})">
                             </div>
                             <span class="user-status">
                                 <span class="status-emoji">
@@ -91,9 +111,12 @@ const repoData = ({
   repoListNode.innerHTML += `
 <div class="repository">
   <div style="display: flex; justify-content: space-between;">
-      <div>
+  <div>
+      <div style="display:flex;align-items:center">
+      
           <h3><a class="repo-name" href="${url}" target="_blank"> ${name} </a></h3>
-          
+          ${isPrivate ? `<span class="label">Private</span>` : ""}
+      </div>    
           ${
             description
               ? `<p class="repo-description"> ${description} </p>`
@@ -113,7 +136,7 @@ const repoData = ({
               <span>Star</span></button>`
               : `<button class="btn-star">
               <svg class="octicon octicon-star-fill mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
-               <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z">
+               <path fill="#6a737d"  fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z">
                </path>
               </svg>
               <span>Unstar</span></button>`
@@ -124,7 +147,7 @@ const repoData = ({
   <div style="display: flex;margin-top: 13px;">
       ${
         language
-          ? `<div style="display:flex;align-items:center"><div class="color-tag" 
+          ? `<div id="language"><div class="color-tag" 
       style="background-color:${language.color}">
       </div><p class="text-gray"> ${language.name}</p></div>`
           : ""
@@ -157,7 +180,13 @@ const repoData = ({
           : ""
       }
 
-      <p class="text-gray timestamp">Updated 6 days ago</p>
+      ${
+        updatedAt
+          ? `<p class="text-gray timestamp">Updated ${dayjs(
+              updatedAt
+            ).fromNow()} </p>`
+          : ""
+      }
   </div>
 </div>
   `;

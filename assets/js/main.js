@@ -11,7 +11,7 @@ const query = `{
       name
       bio
       avatarUrl
-      repositories(last: 20, isFork: false) {
+      repositories(last: 20, isFork: false, orderBy: {field: UPDATED_AT, direction: ASC}) {
         nodes {
           name
           description

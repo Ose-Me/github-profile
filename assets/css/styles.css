@@ -25,6 +25,11 @@ body {
   display: none;
 }
 
+.repo-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .show {
   display: block !important;
 }
@@ -57,7 +62,7 @@ body {
 .header {
   display: flex;
   align-items: center;
-  padding: 0 1.35rem;
+  padding: 0 1.5rem;
   background-color: #24292e;
 }
 
@@ -109,41 +114,48 @@ body {
   align-items: center;
 }
 
-/* search bar */
-.search-bar .search {
+.search-bar {
+  background: #24292e;
+  max-width: 272px;
   width: 100%;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  color: #fff;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .search-bar .searchTerm {
-  min-width: 230px;
-  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid #444d56;
+  border-radius: 6px;
   width: 100%;
-  border: 1px solid #444d56;
-  border-right: none;
-  padding: 0.3rem;
-  border-radius: 5px 0 0 5px;
-  outline: none;
+  font-size: 14px;
   color: #fff;
-  background-color: transparent;
 }
 
-.search-bar .searchTerm:focus {
-  background-color: transparent;
+.searchTerm::placeholder {
+  color: rgb(190, 190, 190);
+  opacity: 1; /* Firefox */
+}
+.searchTerm :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(190, 190, 190);
 }
 
-.search-bar .searchButton {
-  width: 40px;
-  padding-top: 0.28rem;
-  border: 1px solid #444d56;
-  border-left: none;
-  background: transparent;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+.searchTerm::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgb(190, 190, 190);
+}
+
+.search-bar img {
+  position: absolute;
+  right: 16px;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .notifications a {
@@ -173,7 +185,7 @@ body {
 #add-dropdown,
 #profile-dropdown {
   position: relative;
-  padding: 0 0.8rem;
+  padding: 0 0.9rem;
   cursor: pointer;
 }
 
@@ -204,6 +216,7 @@ body {
 
 #dropdown-menu2 {
   width: 175px;
+  right: 5px;
 }
 
 .dropdown-container {
@@ -248,7 +261,7 @@ body {
   padding-top: 24px;
 }
 
-.sticky-top2 {
+#sticky-top2 {
   display: none;
 }
 
@@ -257,6 +270,10 @@ body {
   align-items: center;
 }
 
+#hidden-span img {
+  width: 35px;
+  height: auto;
+}
 .row {
   display: flex;
   border-bottom: 1px solid #e1e4e8;
@@ -454,9 +471,9 @@ body {
 }
 
 .repository {
-  border-top: 1px solid #e1e4e8;
-  border-bottom: 1px solid #e1e4e8;
-  padding: 1.3rem 0;
+  border-top: 1px solid #eaecef;
+  border-bottom: 1px solid #eaecef;
+  padding: 1.5rem 0;
   font-size: 12px;
 }
 
@@ -521,8 +538,22 @@ body {
   color: #586069;
 }
 
+.label {
+  display: inline-block;
+  padding: 0 7px;
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  border-radius: 2em;
+  color: #586069;
+  background-color: initial !important;
+  border: 1px solid #e1e4e8;
+}
+
 .repo-description {
   font-size: 14px;
+  margin-top: 4px;
   color: #586069;
 }
 
@@ -552,6 +583,17 @@ body {
   fill: #0366d6;
 }
 
+#language {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+#fork,
+#star {
+  margin: 0 1rem 0 0;
+}
+
 .color-tag {
   margin-right: 3px;
   width: 12px;
@@ -559,8 +601,18 @@ body {
   border-radius: 100%;
 }
 
-.timestamp {
-  margin-left: 1rem;
+.dropdown-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 2px 3px 0 3px;
+  vertical-align: middle;
+  content: "";
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-right: 4px solid #00000000;
+  border-bottom: 0 solid #00000000;
+  border-left: 4px solid #00000000;
 }
 
 @media only screen and (max-width: 896px) {
@@ -627,36 +679,19 @@ body {
     align-items: center;
   }
 
-  .dropdown-caret {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    vertical-align: middle;
-    content: "";
-    z-index: 32;
-    padding: 16px;
-    font-size: 14px;
-    line-height: 1.5;
-    background-color: #fff;
-    border-top-style: solid;
-    border-top-width: 4px;
-    border-right: 4px solid transparent;
-    border-bottom: 0 solid transparent;
-    border-left: 4px solid transparent;
-  }
-
   .user-status {
     display: none;
   }
   .user-status-container:nth-child(2) {
     display: flex;
+    margin: 10px 0;
   }
 
-  .sticky-top1 {
+  #sticky-top1 {
     display: none;
   }
 
-  .sticky-top2 {
+  #sticky-top2 {
     display: block;
   }
 
@@ -671,6 +706,10 @@ body {
     padding: 0 1rem;
   }
 
+  .underline-nav-item .icon {
+    display: none;
+  }
+
   .profile {
     display: flex;
     align-items: center;
@@ -682,7 +721,7 @@ body {
   }
 
   .img-container {
-    width: 110px;
-    height: 110px;
+    width: 75px;
+    height: 75px;
   }
 }
