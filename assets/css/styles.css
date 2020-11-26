@@ -408,7 +408,7 @@ body {
   border-radius: 6px;
   border: 1px solid #e1e4e8;
   fill: red;
-  padding: 4px 10px;
+  padding: 7px 10px;
   margin: 8px;
   font-size: 12px;
 }
@@ -626,6 +626,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0 1.2rem;
+    margin: 0;
     background-color: #24292e;
   }
 
@@ -676,6 +677,10 @@ body {
     display: none;
   }
 
+  .search-bar img {
+    display: none;
+  }
+
   .sign-out {
     display: flex;
     align-items: center;
@@ -714,12 +719,15 @@ body {
 
   .profile {
     display: flex;
-    align-items: center;
   }
 
   .profile-info {
     margin-top: 0;
     margin-right: 16px;
+  }
+
+  .name {
+    padding: 0.5rem 0;
   }
 
   .img-container {

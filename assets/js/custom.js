@@ -35,10 +35,9 @@ window.addEventListener("scroll", (e) => {
 
 // map userData
 const userData = ({ login, name, bio, avatarUrl }) => {
-  console.log(login, name, bio, avatarUrl, status);
   let user = document.getElementById("profile-container");
   let avatar = document.getElementsByClassName("avatar");
-  console.log(avatar);
+
   for (var i = 0; i < avatar.length; i++) {
     avatar[i].src = avatarUrl;
     avatar[i].style.backgroundImage = `url(${avatarUrl})`;
@@ -76,7 +75,7 @@ const userData = ({ login, name, bio, avatarUrl }) => {
                         </span>
                         <span href="" class="">Set Status</span>
                     </div>
-                    <p style="font-size: 16px;">${bio}</p>
+                    <p style="font-size: 16px;padding:0.5rem 0">${bio}</p>
 `;
   return user;
 };
